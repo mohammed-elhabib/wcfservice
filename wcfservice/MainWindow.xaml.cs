@@ -38,6 +38,7 @@ LastName="SSSSS",
 Password="SSSS",
 Usename="SSSS"
  });
+
             dB.SaveChanges();
         }
         ServiceHost host;
