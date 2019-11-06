@@ -5,15 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.Data.Entity;
+using MySql.Data.Entity;
+using SDK.Model;
 
-namespace wcfservice.Model
+namespace Date.Model
 {
+    [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class DBContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Employee> Employees { get; set; }
 
-        public DBContext() : base("name=testEntities")
+        public DBContext() : base("name=minproject")
         {
         }
 

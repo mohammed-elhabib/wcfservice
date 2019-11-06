@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using wcfservice.Model;
 using wcfservice.Services;
 
 namespace wcfservice
@@ -26,25 +25,11 @@ namespace wcfservice
         public MainWindow()
         {
             // InitializeComponent();
-
-            DBContext dB = new DBContext();
-            dB.Users.Add(new Model.User() {
-                ID=5,
-                Date_At=  DateTime.Now,
-                BirthDayDate=DateTime.Now,
-                Date_Up = DateTime.Now,
-FirstMidName="SSS",
-LastName="SSSSS",
-Password="SSSS",
-Usename="SSSS"
- });
-
-            dB.SaveChanges();
         }
         ServiceHost host;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-        //    host = new ServiceHost(typeof(User));
+            host = new ServiceHost(typeof(UserService));
 
             host.Open();
             text.Text = "Opining";

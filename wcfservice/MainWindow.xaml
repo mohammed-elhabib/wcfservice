@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wcfservice"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="443.564">
     <Grid>
-        <Button Content="start" HorizontalAlignment="Left" Margin="100,117,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="stop" HorizontalAlignment="Left" Margin="99,203,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <TextBlock Text="state" x:Name="text" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="120" />
+        <Button Content="start" FontSize="20" HorizontalAlignment="Left" Margin="86,125,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click" Height="32"/>
+        <Button Content="stop" FontSize="20" HorizontalAlignment="Left" Margin="246,125,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click_1" Height="32" Background="#FFE03434"/>
+        <TextBlock Text="state" x:Name="text" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="253" Margin="114,250,69,129" />
     </Grid>
 </Window>
