@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="443.564">
     <Grid>
         <Button Content="start" FontSize="20" HorizontalAlignment="Left" Margin="86,125,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click" Height="32"/>
-        <Button Content="stop" FontSize="20" HorizontalAlignment="Left" Margin="246,125,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click_1" Height="32" Background="#FFE03434"/>
-        <TextBlock Text="state" x:Name="text" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="253" Margin="114,250,69,129" />
+        <Button Content="stop" FontSize="20" HorizontalAlignment="Left" Margin="246,125,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click_1" Height="32" />
+        <TextBlock x:Name="text" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="253" Margin="114,250,69,129" ><Run Text="State"/><LineBreak/><Run Text="\"/></TextBlock>
     </Grid>
 </Window>

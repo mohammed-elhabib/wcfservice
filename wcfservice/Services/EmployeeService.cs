@@ -19,7 +19,7 @@ namespace wcfservice.Services
         {
             db = new DBContext();
         }
-        public bool AddEmployee(User employee)
+        public bool AddEmployee(Employee employee)
         {
             try
             {
@@ -78,18 +78,33 @@ namespace wcfservice.Services
         {
             return db.Employees.Find(ID);
         }
-        public List<Employee> FindEmployee(string key)
+
+        public List<User> FindEmployees(string key)
         {
-            return db.Employees.ToList().Where(u =>
-                                        u.LastName.Equals(key)
-                                      || u.FirstMidName.Equals(key)
-                                      
-             ).ToList();
+            throw new NotImplementedException();
         }
 
-        public List<Employee> GetAllEmployees()
+        public List<User> GetAllEmployees()
         {
-            return db.Employees.ToList();
+            throw new NotImplementedException();
         }
+
+        User IEmployeeService.FindEmployee(int ID)
+        {
+            throw new NotImplementedException();
+        }
+        /*    public List<Employee> FindEmployee(string key)
+   {
+       return db.Employees.ToList().Where(u =>
+                                   u.LastName.Equals(key)
+                                 || u.FirstMidName.Equals(key)
+
+        ).ToList();
+   }
+   */
+        /*  public List<Employee> GetAllEmployees()
+          {
+              return db.Employees.ToList();
+          }*/
     }
 }

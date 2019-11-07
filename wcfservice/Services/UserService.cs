@@ -98,5 +98,10 @@ namespace wcfservice.Services
         {
             return db.Users.ToList();
         }
+
+        bool IUserService.AddUser(User user)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

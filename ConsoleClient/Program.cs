@@ -13,13 +13,13 @@ namespace ConsoleClient
     {
         static void Main(string[] args)
         {
-            Console.ReadKey();
+       /*     Console.ReadKey();
             var channelFactory = new ChannelFactory<IUserService>(new BasicHttpBinding(), "http://localhost:8733/User");
             var channel = channelFactory.CreateChannel();
             channel.AddUser(new SDK.Model.User()
             {
-                BirthDayDate=DateTime.Now,
-                FirstMidName="ALI",
+                BirthDayDate= DateTime.Now,
+                FirstMidName ="ALI",
                 LastName="kkkk",
                 Password="DDD",
                 Date_At=DateTime.Now,
@@ -41,7 +41,7 @@ namespace ConsoleClient
      
             Console.ReadKey();
 
-
+    */
         }
     }
 }
