@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                  xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
+                    xmlns:local="clr-namespace:WpfClient.Style">
+
+
+
+
+    <Style x:Key="Btn_Top_Menu" TargetType="{x:Type Button}">
+
+        <Setter Property="Foreground" Value="#03527B" />
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Width" Value="20" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate >
+                    <TextBlock Margin="3" Text="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Content}"
+                               Foreground="{TemplateBinding Foreground}"
+                               HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="Red" />
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+   
+        <Style x:Key="Btn_Left_Menu" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="#5E6979" />
+
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Width" Value="150" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate >
+                    <StackPanel Orientation="Horizontal" Width="150"  Background="Transparent" >
+                        <fa:ImageAwesome Width="20" Margin="12 0 0 0" Icon="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Tag}"
+                      Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Left"  />
+                    <TextBlock Margin="15 3 3 3" Text="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Content}"
+                               Foreground="{TemplateBinding Foreground}"
+                               HorizontalAlignment="Left" FontWeight="Bold" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="#BCCEE4" />
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+    <Style x:Key="Lfet_Menu" TargetType="{x:Type StackPanel}" >
+        <Setter Property="Background" Value="#000" />
+    </Style>
+</ResourceDictionary>

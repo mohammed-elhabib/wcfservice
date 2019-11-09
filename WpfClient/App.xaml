@@ -6,9 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary>
-                    <local:Bootstrapper x:Key="Bootstrapper" />
-                </ResourceDictionary>
+               
                 <ResourceDictionary Source="Res/Style/Style.xaml"/>
                 <ResourceDictionary Source="Res/Style/Fonts.xaml"/>
             </ResourceDictionary.MergedDictionaries>

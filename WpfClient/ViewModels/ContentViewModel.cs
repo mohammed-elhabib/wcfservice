@@ -1,20 +1,20 @@
-﻿using Caliburn.Micro;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using WpfClient.Views;
 
 namespace WpfClient.ViewModels
 {
 
-    public class ContentViewModel : Screen
+    public class ContentViewModel : ViewModelBase
     {
-
-        private  _contentControl =;
+        private ContentControl _contentControl  ;
         public ContentControl ContentControl
         {
             get
@@ -24,12 +24,10 @@ namespace WpfClient.ViewModels
             set
             {
                 _contentControl = value;
-              NotifyOfPropertyChange(() => _contentControl);
             }
         }
-       public ContentViewModel() {
-         //   this._contentControl = contentControl;
-
+       public ContentViewModel(ContentControl contentControl) {
+          this._contentControl = contentControl;
         }
     }
 }

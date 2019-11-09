@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfClient.Views;
 
 namespace WpfClient
 {
@@ -13,5 +14,11 @@ namespace WpfClient
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            Ico.Startup();
+            Current.MainWindow = Ico.GetValue<Window>();
+            Current.MainWindow.Show();
+        }
     }
 }
