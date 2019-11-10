@@ -9,7 +9,6 @@
         FontFamily="{StaticResource vip}"
         WindowStartupLocation="CenterScreen"
         Height="450" Width="500.193"
-   
     >
   <!-- <Grid  >
         <Grid.RowDefinitions>

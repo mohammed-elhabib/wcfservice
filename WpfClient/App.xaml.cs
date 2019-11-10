@@ -16,6 +16,7 @@ namespace WpfClient
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            
             Ico.Startup();
             Current.MainWindow = Ico.GetValue<Window>();
             Current.MainWindow.Show();

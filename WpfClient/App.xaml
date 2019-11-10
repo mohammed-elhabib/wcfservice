@@ -6,7 +6,6 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-               
                 <ResourceDictionary Source="Res/Style/Style.xaml"/>
                 <ResourceDictionary Source="Res/Style/Fonts.xaml"/>
             </ResourceDictionary.MergedDictionaries>
