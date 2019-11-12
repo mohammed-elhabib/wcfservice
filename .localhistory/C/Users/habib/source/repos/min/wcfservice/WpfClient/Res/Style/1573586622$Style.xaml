@@ -5,9 +5,10 @@
                     xmlns:lib="clr-namespace:WpfClient.Lib"
                     >
 
-    <lib:StringRGBToBrushConverter x:Key="StringRGBToBrushConverter"/>
+    <lib:StringRGBToBrushConverter x:Key="StringRGBToBrushConverter" />
 
 
+    
 
     <Style x:Key="Btn_Top"
            TargetType="{x:Type Button}">
@@ -144,7 +145,7 @@
         <Setter Property="Background"
                 Value="White" />
         <Setter Property="Foreground"
-                Value="Red" />
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Tag,Converter={StaticResource  StringRGBToBrushConverter }}" />
         <Setter Property="BorderThickness"
                 Value="1" />
         <Setter Property="BorderBrush"

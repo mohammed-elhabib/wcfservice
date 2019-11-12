@@ -61,33 +61,17 @@
 
         <Grid Grid.Row="3">
             <DataGrid
-                HorizontalAlignment="Center"
                 Style="{StaticResource Table_pr}"
-                ItemsSource="{Binding Users}"
                 >
-                <DataGrid.Columns>
-                    <DataGridTextColumn
-      Binding="{Binding Usename}"
-      Header="Usename"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding FirstMidName}"
-      Header="FirstMidName"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding BirthDayDate}"
-      Header="BirthDayDate"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding Date_At}"
-      Header="Date_At"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding Date_At}"
-      Header="Date_At"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />
+                <DataGrid.Columns >
+                    <DataGridTextColumn  Width="180"  HeaderStyle="{StaticResource tb_c_heder}" Header="Usename"   Binding="{Binding  Code}" />
+                    <DataGridTextColumn  Width="180"  HeaderStyle="{StaticResource tb_c_heder}" Header="FirstMidName"   Binding="{Binding  Name}" />
+                    <DataGridTextColumn  Width="180" HeaderStyle="{StaticResource tb_c_heder}"  Header="BirthDayDate"    Binding="{Binding  Cost}" />
+                    <DataGridTextColumn  Width="180" HeaderStyle="{StaticResource tb_c_heder}"  Header="Date_At"    Binding="{Binding  Cost}" />
+                    <DataGridTextColumn  Width="180" HeaderStyle="{StaticResource tb_c_heder}"  Header="Date_Up"    Binding="{Binding  Cost}" />
+
                 </DataGrid.Columns>
+
             </DataGrid>
         </Grid>
     </Grid>

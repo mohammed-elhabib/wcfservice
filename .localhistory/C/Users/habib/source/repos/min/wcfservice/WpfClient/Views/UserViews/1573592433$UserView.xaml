@@ -65,29 +65,7 @@
                 Style="{StaticResource Table_pr}"
                 ItemsSource="{Binding Users}"
                 >
-                <DataGrid.Columns>
-                    <DataGridTextColumn
-      Binding="{Binding Usename}"
-      Header="Usename"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding FirstMidName}"
-      Header="FirstMidName"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding BirthDayDate}"
-      Header="BirthDayDate"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding Date_At}"
-      Header="Date_At"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding Date_At}"
-      Header="Date_At"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />
-                </DataGrid.Columns>
+
             </DataGrid>
         </Grid>
     </Grid>

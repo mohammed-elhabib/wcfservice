@@ -61,32 +61,13 @@
 
         <Grid Grid.Row="3">
             <DataGrid
-                HorizontalAlignment="Center"
-                Style="{StaticResource Table_pr}"
-                ItemsSource="{Binding Users}"
+                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
                 >
                 <DataGrid.Columns>
-                    <DataGridTextColumn
-      Binding="{Binding Usename}"
-      Header="Usename"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding FirstMidName}"
-      Header="FirstMidName"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding BirthDayDate}"
-      Header="BirthDayDate"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding Date_At}"
-      Header="Date_At"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding Date_At}"
-      Header="Date_At"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />
+                    <DataGridTextColumn  Header="Image" Width="200" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Image" Width="180" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Image" Width="180" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Image" Width="180" IsReadOnly="True"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

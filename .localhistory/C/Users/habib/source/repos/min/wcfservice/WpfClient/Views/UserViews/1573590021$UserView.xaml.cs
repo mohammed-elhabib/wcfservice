@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfClient.ViewModels.UserViewModels;
 
 namespace WpfClient.Views.UserViews
 {
@@ -23,7 +22,6 @@ namespace WpfClient.Views.UserViews
     {
         public UserView()
         {
-            this.DataContext = new UserViewModel();
             InitializeComponent();
         }
     }

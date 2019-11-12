@@ -21,33 +21,24 @@ namespace wcfservice.Services
         {
             db = new DBContext();
         }
-
-        public bool AddUser(User user)
+        public ServiceResult AddUser(User user)
         {
-
-            db.Users.Add(user);
-            db.SaveChanges();
-            return true;
+            try
+            {
+                if (string.IsNullOrEmpty(user.Usename))
+                {
+                    return new ServiceResult { Status = ResultState.Fail, Error = "duplicated user name" };
+                }
+                db.Users.Add(user);
+                db.SaveChanges();
+                return new ServiceResult { Status = ResultState.Success, ID = user.ID };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult { Status = ResultState.Error, Error = ex.Message }; ;
+            }
         }
 
-        /*      public ServiceResult AddUser(User user)
-     {
-         try
-         {
-             if (string.IsNullOrEmpty(user.Usename))
-             {
-                 return new ServiceResult { Status = ResultState.Fail, Error = "duplicated user name" };
-             }
-             db.Users.Add(user);
-             db.SaveChanges();
-             return new ServiceResult { Status = ResultState.Success, ID = user.ID };
-         }
-         catch (Exception ex)
-         {
-             return new ServiceResult { Status = ResultState.Error, Error = ex.Message }; ;
-         }
-     }
-     */
         public bool DeleteUser(User user)
         {
             try
@@ -107,6 +98,11 @@ namespace wcfservice.Services
         {
             return db.Users.ToList();
         }
-        
+
+       public bool IUserService.AddUser(User user)
+        {
+            db.Users.Add(user);
+            db.SaveChanges();
+        }
     }
 }

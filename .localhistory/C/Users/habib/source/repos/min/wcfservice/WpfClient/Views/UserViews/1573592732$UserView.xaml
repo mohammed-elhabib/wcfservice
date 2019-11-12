@@ -67,23 +67,23 @@
                 >
                 <DataGrid.Columns>
                     <DataGridTextColumn
-      Binding="{Binding Usename}"
+      Binding="{Binding Name}"
       Header="Usename"
       HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
      />             <DataGridTextColumn
-      Binding="{Binding FirstMidName}"
+      Binding="{Binding Name}"
       Header="FirstMidName"
       HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
      />             <DataGridTextColumn
-      Binding="{Binding BirthDayDate}"
+      Binding="{Binding Name}"
       Header="BirthDayDate"
       HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
      />             <DataGridTextColumn
-      Binding="{Binding Date_At}"
+      Binding="{Binding Name}"
       Header="Date_At"
       HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
      />             <DataGridTextColumn
-      Binding="{Binding Date_At}"
+      Binding="{Binding Name}"
       Header="Date_At"
       HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
      />

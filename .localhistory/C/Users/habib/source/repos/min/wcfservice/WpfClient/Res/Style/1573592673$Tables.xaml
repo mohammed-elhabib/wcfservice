@@ -1,0 +1,169 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WpfClient.Res.Style">
+
+
+    <Style x:Key="DataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}"  >
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Height" Value="50" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="Black" />
+        <Style.Triggers>
+            <Trigger Property="SortDirection" Value="{x:Null}">
+                
+                <Setter Property="BorderBrush"  Value="Transparent" />
+            </Trigger>
+          <!--  <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="SortDirection" Value="{x:Null}" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{StaticResource DataGridHeaderMouseOverBackgroundBrush}" />
+                <Setter Property="BorderBrush" Value="{StaticResource DataGridHeaderBorderBrush}" />
+            </MultiTrigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="true" />
+                    <Condition Property="SortDirection" Value="{x:Null}" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{StaticResource DataGridHeaderMouseOverBackgroundBrush}" />
+                <Setter Property="BorderBrush" Value="{StaticResource DataGridHeaderBorderBrush}" />
+            </MultiTrigger>
+            <Trigger Property="SortDirection" Value="Ascending">
+                <Setter Property="Background" Value="{StaticResource DataGridHeaderSortedBackgroundBrush}" />
+            </Trigger>
+            <Trigger Property="SortDirection" Value="Descending">
+                <Setter Property="Background" Value="{StaticResource DataGridHeaderSortedBackgroundBrush}" />
+            </Trigger>-->
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="DataGridRowHeaderBackgroundStyle" TargetType="{x:Type DataGridRowHeader}">
+        <Setter Property="Background" Value="Gray" />
+    </Style>
+    <Style TargetType="{x:Type DataGridCell}" x:Key="tb_grid_cellr" >
+        <Setter Property="HorizontalAlignment" Value="Center" />
+
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="BorderThickness" Value="0"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="{x:Type DataGridColumnHeader}" x:Key="tb_c_heder" >
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Background" Value="White" />
+    </Style>
+
+    <Style TargetType="{x:Type DataGridRow}" x:Key="tb_r_heder" >
+        <Setter Property="Background" Value="White" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1,0,1,0"/>
+        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+        <Setter Property="BorderBrush" Value="LightGray" />
+    </Style>
+
+    <Style x:Key="Table_pr"  TargetType="{x:Type DataGrid }"  >
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="RowStyle" Value="{StaticResource tb_r_heder}"/>
+        <Setter Property="CellStyle" Value="{StaticResource tb_grid_cellr}"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="CanUserDeleteRows" Value="False"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+    </Style>
+    <Style x:Key="table" TargetType="{x:Type DataGrid}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <DataGrid
+                        CellStyle="{StaticResource tb_grid_cellr}"
+  Margin="0 8 0 0"
+                        IsReadOnly="True"
+  CanUserSortColumns="True"
+  CanUserAddRows="False"
+                                                      RowStyle="{StaticResource tb_r_heder}" 
+
+                        Background="Transparent"
+                        BorderThickness="1"                 
+                        BorderBrush="LightGray"
+                        ItemsSource="{ Binding RelativeSource={RelativeSource TemplatedParent},Path=ItemsSource}"
+                        AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+      Binding="{Binding Code}"
+      Header="Code"
+                    HeaderStyle="{StaticResource tb_c_heder}"             
+      EditingElementStyle="{StaticResource DataGridTextColumnEditingStyle}" />
+                            <!-- if you want to use the pop up style (DataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
+                            <DataGridTextColumn
+      Binding="{Binding Name}"
+      Header="Name"
+      EditingElementStyle="{StaticResource DataGridTextColumnPopupEditingStyle}" />
+                            <!-- set a max length to get an indicator in the editor -->
+                            <DataGridTextColumn
+      Binding="{Binding Cost}"
+      Header="Total Cost"
+      EditingElementStyle="{StaticResource DataGridTextColumnPopupEditingStyle}" />
+
+                            <!-- use custom combo box column to get better combos. Use ItemsSourceBinding as your binding template to be applied to each combo -->
+                        </DataGrid.Columns>
+                        <DataGrid.RowDetailsTemplate>
+                            <DataTemplate>
+                                <Border Background="#F3F3F3" Padding="5" BorderThickness="0 1 0 0 " BorderBrush="LightGray">
+
+                                    <Grid  Background="Transparent">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition  Width="*"/>
+                                            <ColumnDefinition  Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0" >
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Id : " FontWeight="Bold"/>
+                                                <TextBlock Width="200" TextWrapping="Wrap"  Text="{Binding Id}"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Name : " FontWeight="Bold"/>
+                                                <TextBlock Width="200" TextWrapping="Wrap" Text="{Binding Name}"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Code : " FontWeight="Bold"/>
+                                                <TextBlock Width="200" TextWrapping="WrapWithOverflow"  Text="{Binding Code}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="1" >
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Id : " FontWeight="Bold"/>
+                                                <TextBlock Width="200" TextWrapping="Wrap"  Text="{Binding Id}"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock   Text="Name : " FontWeight="Bold"/>
+                                                <TextBlock Width="200" TextWrapping="Wrap"  Text="{Binding Name}"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Code : " FontWeight="Bold"/>
+                                                <TextBlock TextAlignment="Center" Width="200" TextWrapping="Wrap" Text="{Binding Code}"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                                <Button Style="{StaticResource ResizeButton}">
+                                                </Button>
+                                                <Button Style="{StaticResource PowerButton}" >
+                                                </Button>
+                                            </StackPanel>
+
+                                        </StackPanel>
+
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </DataGrid.RowDetailsTemplate>
+
+                    </DataGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -2,12 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
                     xmlns:local="clr-namespace:WpfClient.Style"
-                    xmlns:lib="clr-namespace:WpfClient.Lib"
+                    xmlns:lib="clr-namespace:WpfClient.lib"
                     >
 
-    <lib:StringRGBToBrushConverter x:Key="StringRGBToBrushConverter"/>
+    <lib:StringRGBToBrushConverter x:Key="StringRGBToBrushConverter" />
 
 
+    
 
     <Style x:Key="Btn_Top"
            TargetType="{x:Type Button}">
@@ -144,7 +145,7 @@
         <Setter Property="Background"
                 Value="White" />
         <Setter Property="Foreground"
-                Value="Red" />
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Tag,Converter={StaticResource  StringRGBToBrushConverter }}" />
         <Setter Property="BorderThickness"
                 Value="1" />
         <Setter Property="BorderBrush"
