@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
              xmlns:local="clr-namespace:WpfClient.Views.UserViews"
+             xmlns:pro="clr-namespace:WpfClient.Lib.AttachedProperties"
+             xmlns:helpers="clr-namespace:WpfClient.Lib.Helpers"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
@@ -15,7 +17,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" 
+        <StackPanel Grid.Row="0"
                     Orientation="Horizontal">
             <fa:ImageAwesome Width="17"
                              Height="17"
@@ -34,7 +36,7 @@
                     HorizontalAlignment="Right"
                     Grid.Row="1">
             <TextBlock Text="Search : "
-                    FontWeight="Bold"
+                       FontWeight="Bold"
                        FontSize="18"
                        FontFamily="{StaticResource vip}"
                        VerticalAlignment="Center"
@@ -44,51 +46,49 @@
                      Height="25"
                      BorderThickness=" 0 0 0 2" />
         </StackPanel>
-        <StackPanel Grid.Row="2" Margin="30 0 0 0"
+        <StackPanel Grid.Row="2"
+                    Margin="30 0 0 0"
                     Height="60"
                     Orientation="Horizontal">
             <Button Content="CREATE"
-                    Tag="#FFF"
+                    Foreground="#01579b"
                     Style="{StaticResource Btn_Crud}" />
             <Button Content="EDIT"
                     Style="{StaticResource Btn_Crud}"
-                    Tag="#FFF" />
+                    Foreground="#558b2f"/>
             <Button Content="REMOVE"
+                    pro:HoverProperty.Value="False"
                     Style="{StaticResource Btn_Crud}"
-                    Tag="#FFF" />
+                    Foreground="#d50000" />
 
         </StackPanel>
 
-        <Grid Grid.Row="3">
-            <DataGrid
-                HorizontalAlignment="Center"
-                Style="{StaticResource Table_pr}"
-                ItemsSource="{Binding Users}"
-                >
-                <DataGrid.Columns>
-                    <DataGridTextColumn
-      Binding="{Binding Usename}"
-      Header="Usename"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding FirstMidName}"
-      Header="FirstMidName"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding BirthDayDate}"
-      Header="BirthDayDate"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding Date_At}"
-      Header="Date_At"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />             <DataGridTextColumn
-      Binding="{Binding Date_At}"
-      Header="Date_At"
-      HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"             
-     />
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
+        <DataGrid Grid.Row="3"
+                  Style="{StaticResource Table_pr}"
+                  ItemsSource="{Binding Users}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Usename}"
+                                    Header="Usename"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                <DataGridTextColumn Binding="{Binding FirstMidName}"
+                                    Header="FirstMidName"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                <DataGridTextColumn Binding="{Binding BirthDayDate}"
+                                    Header="BirthDayDate"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                <DataGridTextColumn Binding="{Binding Date_At}"
+                                    Header="Date_At"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                <DataGridTextColumn Binding="{Binding Date_At}"
+                                    Header="Date_At"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </UserControl>

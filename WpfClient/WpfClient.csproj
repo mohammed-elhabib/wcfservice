@@ -75,7 +75,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Ico.cs" />
+    <Compile Include="Lib\AttachedProperties\BaseAttachedProperty.cs" />
+    <Compile Include="Lib\AttachedProperties\HoverProperty.cs" />
     <Compile Include="Lib\Command.cs" />
+    <Compile Include="Lib\Helpers\ButtonsHelper.cs" />
     <Compile Include="Lib\StringRGBToBrushConverter.cs" />
     <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
