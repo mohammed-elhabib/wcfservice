@@ -17,7 +17,6 @@ namespace WpfClient.Lib.AttachedProperties
             if ((bool)e.NewValue)
             {
                 var colorbacground = button.Background;
-                MessageBox.Show("on changed");
                 button.Background = button.Foreground;
                 button.Foreground = colorbacground;
             }

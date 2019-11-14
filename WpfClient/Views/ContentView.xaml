@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:WpfClient"
         mc:Ignorable="d"
         WindowStyle="None"
+        
         FontFamily="{StaticResource vip}"
         WindowStartupLocation="CenterScreen"
-        Height="450" Width="500.193"
-    >
-  <!-- <Grid  >
+        Height="450"
+        Width="500.193">
+    <!-- <Grid  >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -44,9 +45,13 @@
         </Grid>
     </Grid> 
     -->
-    
-    <Grid>
 
+    <Grid>
+       
         <ContentControl Content="{Binding ContentControl}" />
+        <Grid Background="Black"
+              Opacity="0.4"
+              Visibility="{Binding GridVisibility}">
+        </Grid>
     </Grid>
 </Window>

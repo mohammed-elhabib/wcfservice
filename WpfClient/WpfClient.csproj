@@ -77,22 +77,38 @@
     <Compile Include="Ico.cs" />
     <Compile Include="Lib\AttachedProperties\BaseAttachedProperty.cs" />
     <Compile Include="Lib\AttachedProperties\HoverProperty.cs" />
+    <Compile Include="Lib\AttachedProperties\MouseBehaviour.cs" />
+    <Compile Include="Lib\CommandByPar.cs" />
     <Compile Include="Lib\Command.cs" />
+    <Compile Include="Lib\Dailog\DialogService.cs" />
+    <Compile Include="Lib\Dailog\IDialogWindow.cs" />
     <Compile Include="Lib\Helpers\ButtonsHelper.cs" />
     <Compile Include="Lib\StringRGBToBrushConverter.cs" />
     <Compile Include="ViewModels\AppViewModel.cs" />
+    <Compile Include="ViewModels\DailogViewModel\DialogViewModelBase.cs" />
+    <Compile Include="ViewModels\DailogViewModel\SuccessfullViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ContentViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModels\CreateUserViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\AppView.xaml.cs">
       <DependentUpon>AppView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DailogView\DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DailogView\SuccessfullView.xaml.cs">
+      <DependentUpon>SuccessfullView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserViews\CreateUserView.xaml.cs">
+      <DependentUpon>CreateUserView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserViews\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
@@ -125,11 +141,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DailogView\DialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DailogView\SuccessfullView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserViews\CreateUserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

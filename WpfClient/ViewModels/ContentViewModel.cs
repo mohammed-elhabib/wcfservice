@@ -14,7 +14,7 @@ namespace WpfClient.ViewModels
 
     public class ContentViewModel : ViewModelBase
     {
-        private ContentControl _contentControl  ;
+        private ContentControl _contentControl;
         public ContentControl ContentControl
         {
             get
@@ -26,7 +26,19 @@ namespace WpfClient.ViewModels
                 _contentControl = value;
             }
         }
-       public ContentViewModel(ContentControl contentControl) {
+        private Visibility _gridVisibility=Visibility.Collapsed;
+        public Visibility GridVisibility
+        {
+            get
+            {
+                return _gridVisibility;
+            }
+            set
+            {
+                _gridVisibility = value;
+            }
+        }
+        public ContentViewModel(ContentControl contentControl) {
           this._contentControl = contentControl;
         }
     }

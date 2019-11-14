@@ -52,6 +52,7 @@
                     Orientation="Horizontal">
             <Button Content="CREATE"
                     Foreground="#01579b"
+                    Command="{Binding CreateCommand}"
                     Style="{StaticResource Btn_Crud}" />
             <Button Content="EDIT"
                     Style="{StaticResource Btn_Crud}"
@@ -59,11 +60,13 @@
             <Button Content="REMOVE"
                     pro:HoverProperty.Value="False"
                     Style="{StaticResource Btn_Crud}"
-                    Foreground="#d50000" />
+                    Foreground="#d50000"
+                    Command="{Binding RemoveCommand}" />
 
         </StackPanel>
 
         <DataGrid Grid.Row="3"
+                  SelectedValue="{Binding UserSelect}"
                   Style="{StaticResource Table_pr}"
                   ItemsSource="{Binding Users}">
             <DataGrid.Columns>
