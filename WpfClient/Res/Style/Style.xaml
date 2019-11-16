@@ -194,4 +194,16 @@
         <Setter Property="Background"
                 Value="#313A46" />
     </Style>
+
+    <Style x:Key="MefList"
+           TargetType="{x:Type ListView}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
 </ResourceDictionary>

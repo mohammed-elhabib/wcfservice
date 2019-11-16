@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfClient.Lib.Extenion;
 using WpfClient.Views;
 
 namespace WpfClient
@@ -16,10 +17,12 @@ namespace WpfClient
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            var im = new InportManger();
             
-            Ico.Startup();
-            Current.MainWindow = Ico.GetValue<Window>();
-            Current.MainWindow.Show();
+
+       //     Ico.Startup();
+       //Current.MainWindow = Ico.GetValue<Window>();
+       //   Current.MainWindow.Show();
         }
     }
 }

@@ -54,9 +54,14 @@
                     Foreground="#01579b"
                     Command="{Binding CreateCommand}"
                     Style="{StaticResource Btn_Crud}" />
+            <Button Content="VIEW"
+                    Style="{StaticResource Btn_Crud}"
+                    Command="{Binding ViewCommand}"
+                    Foreground="#558b2f" />
             <Button Content="EDIT"
                     Style="{StaticResource Btn_Crud}"
-                    Foreground="#558b2f"/>
+                    Command="{Binding EditCommand}"
+                    Foreground="#558b2f" />
             <Button Content="REMOVE"
                     pro:HoverProperty.Value="False"
                     Style="{StaticResource Btn_Crud}"
@@ -86,8 +91,8 @@
                                     Header="Date_At"
                                     Width="*"
                                     HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
-                <DataGridTextColumn Binding="{Binding Date_At}"
-                                    Header="Date_At"
+                <DataGridTextColumn Binding="{Binding Date_Up}"
+                                    Header="Date_Up"
                                     Width="*"
                                     HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
             </DataGrid.Columns>

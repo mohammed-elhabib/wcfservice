@@ -17,7 +17,7 @@ using WpfClient.Views.UserViews;
 
 namespace WpfClient.ViewModels.UserViewModels
 {
-   public class UserViewModel:ViewModelBase
+    public class UserViewModel : ViewModelBase
     {
         private ObservableCollection<User> _users;
         private User _userSelect;
@@ -31,16 +31,23 @@ namespace WpfClient.ViewModels.UserViewModels
         public User UserSelect
         {
             get { return _userSelect; }
-            set {
-                _userSelect = value; }
+            set
+            {
+                _userSelect = value;
+            }
 
         }
         public ICommand CreateCommand { get; private set; }
         public ICommand RemoveCommand { get; private set; }
-        public  UserViewModel() {
-           this.UpdateUsers();
-              CreateCommand = new Command(CreateUser);
+        public ICommand EditCommand { get; private set; }
+        public ICommand ViewCommand { get; private set; }
+        public UserViewModel()
+        {
+            this.UpdateUsers();
+            CreateCommand = new Command(CreateUser);
             RemoveCommand = new Command(RemoveUser);
+            EditCommand = new Command(EditUser);
+            ViewCommand = new Command(ViewUser);
 
         }
 
@@ -52,7 +59,8 @@ namespace WpfClient.ViewModels.UserViewModels
             Users = new ObservableCollection<User>(channel.GetAllUsers());
 
         }
-        public void CreateUser() {
+        public void CreateUser()
+        {
             DialogService dialog = new DialogService();
 
             CreateUserViewModel createUser = new CreateUserViewModel("create user", new CreateUserView());
@@ -64,7 +72,7 @@ namespace WpfClient.ViewModels.UserViewModels
         {
             var channelFactory = new ChannelFactory<IUserService>(new BasicHttpBinding(), "http://localhost:8733/User");
             var channel = channelFactory.CreateChannel();
-           
+
             if (_userSelect != null)
             {
                 channel.DeleteUser(_userSelect);
@@ -74,6 +82,30 @@ namespace WpfClient.ViewModels.UserViewModels
                 dialog.OpenDialog<bool>(successfull);
                 this.UpdateUsers();
 
+            }
+        }
+        public void EditUser()
+        {
+
+            if (_userSelect != null)
+            {
+
+                DialogService dialog = new DialogService();
+                EditUserViewModel editUser = new EditUserViewModel(_userSelect, "create user", new EditUserView());
+                dialog.OpenDialog<User>(editUser);
+                this.UpdateUsers();
+            }
+        }
+        public void ViewUser()
+        {
+
+            if (_userSelect != null)
+            {
+
+                DialogService dialog = new DialogService();
+                ViewUserViewModel vieweUser = new ViewUserViewModel(_userSelect, "create user", new ViewUserView());
+                dialog.OpenDialog<User>(vieweUser);
+                this.UpdateUsers();
             }
         }
     }
