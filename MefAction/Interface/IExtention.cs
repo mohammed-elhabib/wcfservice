@@ -11,7 +11,8 @@ namespace MefAction.Interface
     {
         string Name { get; }
         string ViewName { get; set; }
-        void DoAction();
-        FrameworkElement GetGUI();
+        object _objetc { get; set; }
+        FrameworkElement View { get; set; }
+        void SetObject(object _object);
     }
 }
