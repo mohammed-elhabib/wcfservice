@@ -29,13 +29,6 @@ namespace WpfClient.Lib.Extenion
 
             cc.ComposeParts(this);
 
-
-
-
-
-            MessageBox.Show(ExtenionList.Count().ToString());
-
-
         }
 
         private string GetConFiguretionPath()
