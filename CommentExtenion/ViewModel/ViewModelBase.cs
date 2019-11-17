@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace ActiveUserExtenion.ViewModel
+namespace CommentExtenion.ViewModel
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

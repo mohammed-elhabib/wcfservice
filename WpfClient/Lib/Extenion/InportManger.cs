@@ -40,7 +40,7 @@ namespace WpfClient.Lib.Extenion
                (AppSettingsSection)PluginConfig.GetSection("appSettings");
                // retorna o valor da chave PluginPath
                return PluginConfigAppSettings.Settings["ExtenionPath"].Value;*/
-            return "C:\\Users\\habib\\Desktop\\app";
+            return "C:\\Users\\moham\\OneDrive\\Desktop\\Extenion";
         }
     }
 }

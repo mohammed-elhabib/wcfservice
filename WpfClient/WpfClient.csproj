@@ -93,6 +93,10 @@
     <Compile Include="ViewModels\ExtenionViewModels\ExtentionViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ContentViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModels\CreateEmployeeViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModels\EditEmployeeViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModels\EmployeeViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModels\ViewEmployeeViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\ViewUserViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\EditUserViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\CreateUserViewModel.cs" />
@@ -115,6 +119,18 @@
     </Compile>
     <Compile Include="Views\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeViews\CreateEmployeeView.xaml.cs">
+      <DependentUpon>CreateEmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeViews\EditEmployeeView.xaml.cs">
+      <DependentUpon>EditEmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeViews\EmployeeView.xaml.cs">
+      <DependentUpon>EmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeViews\ViewEmployeeView.xaml.cs">
+      <DependentUpon>ViewEmployeeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserViews\ViewUserView.xaml.cs">
       <DependentUpon>ViewUserView.xaml</DependentUpon>
@@ -175,6 +191,22 @@
     <Page Include="Views\UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeeViews\CreateEmployeeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EmployeeViews\EditEmployeeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EmployeeViews\EmployeeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EmployeeViews\ViewEmployeeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\UserViews\ViewUserView.xaml">
       <Generator>MSBuild:Compile</Generator>

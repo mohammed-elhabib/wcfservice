@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace ActiveUserExtenion
+namespace SDK.Lib
 {
     public class Command : ICommand
     {

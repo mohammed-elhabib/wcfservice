@@ -79,20 +79,22 @@ namespace wcfservice.Services
             return db.Employees.Find(ID);
         }
 
-        public List<User> FindEmployees(string key)
+        public List<Employee> FindEmployees(string key)
         {
-            throw new NotImplementedException();
+            key = key?.ToLower();
+            return db.Employees.ToList().Where(e => (bool)e.job?.ToLower().Contains(key)
+                                      || (bool)e.LastName.ToLower().Contains(key)
+                                      || (bool)e.FirstMidName.ToLower().Contains(key)
+
+             ).ToList();
         }
 
-        public List<User> GetAllEmployees()
+        public List<Employee> GetAllEmployees()
         {
-            throw new NotImplementedException();
+            return db.Employees.ToList();
         }
 
-        User IEmployeeService.FindEmployee(int ID)
-        {
-            throw new NotImplementedException();
-        }
+        
         /*    public List<Employee> FindEmployee(string key)
    {
        return db.Employees.ToList().Where(u =>

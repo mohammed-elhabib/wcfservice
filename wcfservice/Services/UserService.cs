@@ -98,9 +98,9 @@ namespace wcfservice.Services
         public List<User> FindUsers(string key)
         {
             key = key?.ToLower();
-            return db.Users.ToList().Where(u => u.Usename?.ToLower() == key
-                                      || u.LastName.Equals(key)
-                                      || u.FirstMidName.Equals(key)
+            return db.Users.ToList().Where(u =>(bool) u.Usename?.ToLower().Contains(key)
+                                      || (bool)u.LastName.ToLower().Contains(key)
+                                      || (bool)u.FirstMidName.ToLower().Contains(key)
 
              ).ToList();
         }

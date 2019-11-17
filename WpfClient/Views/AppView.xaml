@@ -79,15 +79,18 @@
                     <StackPanel Grid.Row="1">
                         <Button   Content="User Contol"
                                   Tag="Users"
+                                  Command="{Binding UserCommand}"
                                   Style="{StaticResource Btn_Left_Menu}" />
                         <Button  Content="Employee Contol"
                                  Tag="UserSecret"
+                                 Command="{Binding EmployeeCommand}"
                                  Style="{StaticResource Btn_Left_Menu}" />
                         <Button  Content="Settings"
                                  Tag="Edit"
                                  Style="{StaticResource Btn_Left_Menu}" />
                         <Button  Content="Logout"
                                  Tag="Edit"
+                                 Command="{Binding LogoutCommand}"
                                  Style="{StaticResource Btn_Left_Menu}"
                                  Foreground="#CB4D54" />
                     </StackPanel>

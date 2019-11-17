@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ActiveExtenion.View
+namespace WpfClient.Views.EmployeeViews
 {
     /// <summary>
-    /// Interaction logic for View.xaml
+    /// Interaction logic for CreateUserView.xaml
     /// </summary>
-    public partial class View : UserControl
+    public partial class ViewEmployeeView : UserControl
     {
-        public View()
+        public ViewEmployeeView()
         {
             InitializeComponent();
         }

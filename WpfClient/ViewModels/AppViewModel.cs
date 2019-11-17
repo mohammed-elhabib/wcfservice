@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WpfClient.Lib;
+using WpfClient.Views;
+using WpfClient.Views.EmployeeViews;
 using WpfClient.Views.UserViews;
 
 namespace WpfClient.ViewModels
@@ -28,13 +30,35 @@ namespace WpfClient.ViewModels
         }
         public ICommand MinCommand { get; set; }
        public ICommand PowerCommand { get; set; }
-       public ICommand ResizeCommand { get; set; }
+        public ICommand ResizeCommand { get; set; }
+        public ICommand UserCommand { get; set; }
+        public ICommand EmployeeCommand { get; set; }
+        public ICommand LogoutCommand { get; set; }
         public AppViewModel() {
             this.PowerCommand = new Command(PowerAction);
             this.ResizeCommand = new Command(ResizeAction);
             this.MinCommand = new Command(MinAction);
+            this.UserCommand = new Command(UserAction);
+            this.EmployeeCommand = new Command(EmployeeAction);
+            this.LogoutCommand = new Command(LogoutAction);
 
 
+        }
+
+        private void EmployeeAction()
+        {
+            Content = new EmployeeView();
+        }
+
+        private void UserAction()
+        {
+            Content = new UserView();
+        }
+
+        private void LogoutAction()
+        {
+            Ico.GetValue<ContentViewModel>().ContentControl = new LoginView();
+            Ico.GetValue<Window>().WindowState ^= WindowState.Maximized;
         }
 
         public void PowerAction() => System.Windows.Application.Current.Shutdown();

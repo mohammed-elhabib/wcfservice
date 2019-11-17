@@ -10,6 +10,33 @@ using SDK.Model;
 
 namespace Date.Model
 {
+
+    public class DbInitializer : CreateDatabaseIfNotExists<DBContext>
+    {
+        protected override void Seed(DBContext context)
+        {
+            for (int i = 0; i < 1000000; i++)
+            {
+                context.Employees.Add(new Employee
+                {
+                    BirthDayDate = DateTime.Today.AddDays(-1 * i),
+                    Date_At = DateTime.Now,
+                    Date_Up = DateTime.Now,
+                    FirstMidName = $"First name {i}",
+                    job = $"Job {i}",
+                    LastName = $"Last name {i}",
+                    Pay = 233m * i,
+                });
+
+                if (i % 1000 == 0)
+                {
+                    context.SaveChanges();
+                }
+            }
+            base.Seed(context);
+        }
+    }
+
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class DBContext : DbContext
     {
@@ -18,8 +45,11 @@ namespace Date.Model
 
         public DBContext() : base("name=minproject")
         {
+            
         }
 
-        
+
+
+
     }
 }

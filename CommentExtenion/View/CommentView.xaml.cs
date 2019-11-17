@@ -10,18 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace CommentExtenion.Views
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for DialogWindow.xaml
     /// </summary>
-    public partial class View : UserControl
+    public partial class CommentView : Window
     {
-        public View()
+        public CommentView()
         {
+            
             InitializeComponent();
         }
     }

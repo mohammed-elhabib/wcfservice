@@ -40,6 +40,7 @@ namespace WpfClient.ViewModels.UserViewModels
         public ICommand CreateCommand { get; private set; }
         public ICommand RemoveCommand { get; private set; }
         public ICommand EditCommand { get; private set; }
+        public ICommand SearchCommand { get; private set; }
         public ICommand ViewCommand { get; private set; }
         public UserViewModel()
         {
@@ -48,6 +49,17 @@ namespace WpfClient.ViewModels.UserViewModels
             RemoveCommand = new Command(RemoveUser);
             EditCommand = new Command(EditUser);
             ViewCommand = new Command(ViewUser);
+            SearchCommand = new CommandByPar(SearchUser);
+
+        }
+
+        private void SearchUser(object obj)
+        {
+            string text = (string)obj;
+
+            var channelFactory = new ChannelFactory<IUserService>(new BasicHttpBinding(), "http://localhost:8733/User");
+            var channel = channelFactory.CreateChannel();
+            Users = new ObservableCollection<User>(channel.FindUsers(text));
 
         }
 

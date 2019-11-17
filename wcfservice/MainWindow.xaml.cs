@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Date.Model;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -26,19 +28,33 @@ namespace wcfservice
         {
             // InitializeComponent();
         }
-        ServiceHost host;
+        ServiceHost hostUser;
+        ServiceHost hostEmployee;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            host = new ServiceHost(typeof(UserService));
 
-            host.Open();
+            using (var context = new DBContext())
+            {
+                if (!context.Database.Exists())
+                {
+                    Database.SetInitializer(new DbInitializer());
+                    context.Database.Initialize(true);
+                }
+            }
+
+            hostUser = new ServiceHost(typeof(UserService));
+            hostEmployee = new ServiceHost(typeof(EmployeeService));
+
+            hostUser.Open();
+            hostEmployee.Open();
             text.Text = "Opining";
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            host.Close();
+            hostUser.Close();
+            hostEmployee.Close();
             text.Text = "closing";
 
         }

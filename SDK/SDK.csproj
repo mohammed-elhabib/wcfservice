@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="IService\IEmployeeService.cs" />
     <Compile Include="IService\IUserService.cs" />
+    <Compile Include="Lib\Command.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

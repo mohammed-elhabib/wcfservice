@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CommentExtenion.Views
+namespace WpfClient.Views.EmployeeViews
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for CreateUserView.xaml
     /// </summary>
-    public partial class View : UserControl
+    public partial class EditEmployeeView : UserControl
     {
-        public View()
+        public EditEmployeeView()
         {
             InitializeComponent();
         }

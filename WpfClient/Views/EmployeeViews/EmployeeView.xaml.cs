@@ -12,16 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfClient.ViewModels.EmployeeViewModels;
 
-namespace CommentExtenion.Views
+namespace WpfClient.Views.EmployeeViews
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for UserView.xaml
     /// </summary>
-    public partial class View : UserControl
+    public partial class EmployeeView : UserControl
     {
-        public View()
+        public EmployeeView()
         {
+            this.DataContext = new EmployeeViewModel();
             InitializeComponent();
         }
     }

@@ -1,10 +1,10 @@
-﻿<UserControl x:Class="WpfClient.Views.UserViews.UserView"
+﻿<UserControl x:Class="WpfClient.Views.EmployeeViews.EmployeeView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
-             xmlns:local="clr-namespace:WpfClient.Views.UserViews"
+             xmlns:local="clr-namespace:WpfClient.Views.EmployeeViews"
              xmlns:pro="clr-namespace:WpfClient.Lib.AttachedProperties"
              xmlns:helpers="clr-namespace:WpfClient.Lib.Helpers"
              mc:Ignorable="d"
@@ -29,7 +29,7 @@
                        FontWeight="Bold"
                        FontFamily="{StaticResource vip}"
                        FontSize="20"
-                       Text="Users List " />
+                       Text="Employees List " />
         </StackPanel>
         <StackPanel Orientation="Horizontal"
                     Margin="0 0 100 0"
@@ -78,22 +78,31 @@
         </StackPanel>
 
         <DataGrid Grid.Row="3"
-                  SelectedValue="{Binding UserSelect}"
+                  SelectedValue="{Binding EmployeeSelect}"
                   Style="{StaticResource Table_pr}"
-                  ItemsSource="{Binding Users}">
+                  ItemsSource="{Binding Employees}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Usename}"
-                                    Header="Usename"
-                                    Width="*"
-                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
                 <DataGridTextColumn Binding="{Binding FirstMidName}"
                                     Header="FirstMidName"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                <DataGridTextColumn Binding="{Binding LastName}"
+                                    Header="LastName"
                                     Width="*"
                                     HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
                 <DataGridTextColumn Binding="{Binding BirthDayDate}"
                                     Header="BirthDayDate"
                                     Width="*"
                                     HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                <DataGridTextColumn Binding="{Binding job}"
+                                    Header="job"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                <DataGridTextColumn Binding="{Binding Pay}"
+                                    Header="Pay"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+             
                 <DataGridTextColumn Binding="{Binding Date_At}"
                                     Header="Date_At"
                                     Width="*"

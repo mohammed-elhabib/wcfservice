@@ -1,6 +1,7 @@
-﻿using ActiveExtenion.View;
+﻿using CommentExtenion.Views;
 using MefAction.Interface;
 using SDK.IServices;
+using SDK.Lib;
 using SDK.Model;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace ActiveUserExtenion.ViewModel
+namespace CommentExtenion.ViewModel
 {
 
     [Export(typeof(IExtention))]
@@ -26,53 +27,26 @@ namespace ActiveUserExtenion.ViewModel
         public FrameworkElement View { get ; set ; }
         
         public ICommand command { get; set; }
-        public Brush Forground { get; set; }
         public object _objetc { get; set; }
 
         public  ViewModel( ) {
                //_object = user;
             View = new View();
             View.DataContext = this;
-            command = new Command(ActiveUser); ;
+            ViewName = "Comment";
+            command = new Command(CommnetAction); ;
            }
 
-        public void ActiveUser() {
+        public void CommnetAction() {
             var user = (User)_objetc;
-            if (user.Active)
-            {
-                user.Active = false;
-                ViewName = "Active";
-                Forground = new SolidColorBrush(Colors.Green);
-            }
-            else
-            {
-                user.Active = true;
-                ViewName = "Disactive";
-                Forground = new SolidColorBrush(Colors.Red);
-            }
-            var channelFactory = new ChannelFactory<IUserService>(new BasicHttpBinding(), "http://localhost:8733/User");
-            var channel = channelFactory.CreateChannel();
-            channel.EditUser(user);
-
+            CommentView commentView = new CommentView();
+            commentView.DataContext = new CommentViewModel(user);
+            commentView.Show();
         }
 
         public void SetObject(object _object)
         {
             this._objetc = _object;
-            var user = (User)_objetc;
-
-            if (user.Active)
-            {
-                ViewName = "Disactive";
-                Forground = new SolidColorBrush(Colors.Red);
-            }
-            else
-            {
-                ViewName = "Active";
-                Forground = new SolidColorBrush(Colors.Green);
-
-            }
-
         }
     }
 }
