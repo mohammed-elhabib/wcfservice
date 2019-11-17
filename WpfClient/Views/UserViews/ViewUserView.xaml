@@ -4,14 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:WpfClient.Views.UserViews"
+             xmlns:Extenion="clr-namespace:WpfClient.Views.ExtenionView"
              mc:Ignorable="d"
              FontFamily="{StaticResource vip}"
              d:DesignWidth="800">
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"
                     Margin="10 20 0 40">
@@ -26,7 +27,24 @@
                            Text="View User" />
             </Border>
         </StackPanel>
-        <StackPanel Grid.Row="1" Margin="0 0 0 50">
+        <StackPanel Grid.Row="1">
+            <ListBox   ItemsSource="{Binding UserExtenions}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Extenion:ItemExtention Padding="0"  />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Margin="0 0 0 50">
 
             <StackPanel Orientation="Horizontal">
                 <StackPanel Margin="10 5 5 5"

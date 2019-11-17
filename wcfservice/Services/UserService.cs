@@ -76,6 +76,8 @@ namespace wcfservice.Services
                 us.Usename = user.Usename;
                 us.Password = user.Password;
                 us.Date_Up = DateTime.Now;
+                us.Active = user.Active;
+                us.Comment = user.Comment;
                 db.SaveChanges();
                 return true;
             }

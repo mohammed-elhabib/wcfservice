@@ -24,6 +24,6 @@ namespace SDK.IServices
         List<User> FindUsers(String key);
         [OperationContract]
         List<User> GetAllUsers();
-
+        
     }
 }

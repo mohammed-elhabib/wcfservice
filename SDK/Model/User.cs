@@ -25,6 +25,10 @@ namespace SDK.Model
         public DateTime Date_At { get; set; }
         [DataMember]
         public DateTime Date_Up { get; set; }
+        [DataMember]
+        public bool Active { get; set; } = true;
+        [DataMember]
+        public string Comment { get; set; } = null;
 
     }
 }

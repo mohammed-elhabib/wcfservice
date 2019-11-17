@@ -17,12 +17,12 @@ namespace WpfClient
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            var im = new InportManger();
+            //var im = new InportManger();
             
 
-       //     Ico.Startup();
-       //Current.MainWindow = Ico.GetValue<Window>();
-       //   Current.MainWindow.Show();
+           Ico.Startup();
+          Current.MainWindow = Ico.GetValue<Window>();
+          Current.MainWindow.Show();
         }
     }
 }
