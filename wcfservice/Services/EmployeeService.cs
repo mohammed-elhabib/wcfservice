@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using Date.Model;
+using wcfservice.Pagination;
 
 namespace wcfservice.Services
 {
@@ -79,19 +80,21 @@ namespace wcfservice.Services
             return db.Employees.Find(ID);
         }
 
-        public List<Employee> FindEmployees(string key)
+        
+        public List<Employee> FindEmployees(string key, int page, int pageSize)
         {
             key = key?.ToLower();
-            return db.Employees.ToList().Where(e => (bool)e.job?.ToLower().Contains(key)
+            return db.Employees.OrderBy(e => e.ID).Where(e => (bool)e.job.ToLower().Contains(key)
                                       || (bool)e.LastName.ToLower().Contains(key)
                                       || (bool)e.FirstMidName.ToLower().Contains(key)
 
-             ).ToList();
+             ).GetPaged(page, pageSize).Results.ToList();
+
         }
 
-        public List<Employee> GetAllEmployees()
+        public List<Employee> GetAllEmployees(int page, int pageSize)
         {
-            return db.Employees.ToList();
+            return db.Employees.OrderBy(e=>e.ID).GetPaged(page, pageSize).Results.ToList();
         }
 
         

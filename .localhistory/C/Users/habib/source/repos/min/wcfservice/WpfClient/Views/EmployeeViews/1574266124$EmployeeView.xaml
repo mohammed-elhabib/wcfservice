@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="WpfClient.Views.EmployeeViews.EmployeeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
+             xmlns:local="clr-namespace:WpfClient.Views.EmployeeViews"
+             xmlns:pro="clr-namespace:WpfClient.Lib.AttachedProperties"
+             xmlns:helpers="clr-namespace:WpfClient.Lib.Helpers"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal">
+            <fa:ImageAwesome Width="17"
+                             Height="17"
+                             Margin="20 5 5 5"
+                             Icon="ArrowLeft"
+                             Foreground="Black"
+                             HorizontalAlignment="Left" />
+            <TextBlock Margin="5"
+                       FontWeight="Bold"
+                       FontFamily="{StaticResource vip}"
+                       FontSize="20"
+                       Text="Employees List " />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    Margin="0 0 100 0"
+                    HorizontalAlignment="Right"
+                    Grid.Row="1">
+            <TextBlock Text="Search : "
+                       FontWeight="Bold"
+                       FontSize="18"
+                       FontFamily="{StaticResource vip}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right" />
+            <TextBox Width="250"
+                     HorizontalAlignment="Right"
+                     Height="25"
+                     x:Name="SearchText"
+                     BorderThickness=" 0 0 0 2">
+                <TextBox.InputBindings>
+                    <KeyBinding Command="{Binding SearchCommand}"
+                                CommandParameter="{Binding Text, ElementName=SearchText}"
+                                Key="Enter" />
+                </TextBox.InputBindings>
+            </TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2"
+                    Margin="30 0 0 0"
+                    Height="60"
+                    Orientation="Horizontal">
+            <Button Content="CREATE"
+                    Foreground="#01579b"
+                    Command="{Binding CreateCommand}"
+                    Style="{StaticResource Btn_Crud}" />
+            <Button Content="VIEW"
+                    Style="{StaticResource Btn_Crud}"
+                    Command="{Binding ViewCommand}"
+                    Foreground="#558b2f" />
+            <Button Content="EDIT"
+                    Style="{StaticResource Btn_Crud}"
+                    Command="{Binding EditCommand}"
+                    Foreground="#558b2f" />
+            <Button Content="REMOVE"
+                    pro:HoverProperty.Value="False"
+                    Style="{StaticResource Btn_Crud}"
+                    Foreground="#d50000"
+                    Command="{Binding RemoveCommand}" />
+
+        </StackPanel>
+        <Grid Grid.Row="3">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel Margin="3 " Orientation="Horizontal">
+                <TextBlock Text=" Number of rows: "/>
+                <TextBox Text="30" Width="30"/>
+            </StackPanel>
+            <StackPanel Margin="3 " Orientation="Horizontal">
+                <TextBlock Text=" Page Number : "/>
+                <TextBox Text="30" Width="30"/>
+            </StackPanel>
+            
+    <StackPanel Margin="3 " Orientation="Horizontal">
+                <Button Background="Transparent" BorderThickness="0">
+                        <fa:ImageAwesome Width="5"
+                                         Margin="20 0 0 0"
+                                         Icon="AngleDoubleLeft"
+                                          />
+                    </Button> 
+                <Button Width="30"  Background="Transparent" BorderThickness="0">
+                    <fa:ImageAwesome Height="5" Width="5"
+                                         Margin="20 0 0 0"
+                                         Icon="AngleDoubleRight"
+                                           />
+
+                </Button> 
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+    <DataGrid Grid.Row="4"
+                  SelectedValue="{Binding EmployeeSelect}"
+                  Style="{StaticResource Table_pr}"
+                  ItemsSource="{Binding Employees}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding FirstMidName}"
+                                    Header="FirstMidName"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                <DataGridTextColumn Binding="{Binding LastName}"
+                                    Header="LastName"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                <DataGridTextColumn Binding="{Binding BirthDayDate}"
+                                    Header="BirthDayDate"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                <DataGridTextColumn Binding="{Binding job}"
+                                    Header="job"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                <DataGridTextColumn Binding="{Binding Pay}"
+                                    Header="Pay"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+             
+                <DataGridTextColumn Binding="{Binding Date_At}"
+                                    Header="Date_At"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                <DataGridTextColumn Binding="{Binding Date_Up}"
+                                    Header="Date_Up"
+                                    Width="*"
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>

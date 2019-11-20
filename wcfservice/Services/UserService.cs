@@ -9,6 +9,7 @@ using System.Text;
 using Date.Model;
 using SDK.IServices;
 using SDK;
+using wcfservice.Pagination;
 
 namespace wcfservice.Services
 {
@@ -95,20 +96,27 @@ namespace wcfservice.Services
         {
             return db.Users.Find(ID);
         }
-        public List<User> FindUsers(string key)
+        
+
+        public List<User> FindUsers(string key, int page, int pageSize)
         {
+
             key = key?.ToLower();
-            return db.Users.ToList().Where(u =>(bool) u.Usename?.ToLower().Contains(key)
+            return db.Users.OrderBy(u=>u.ID).Where(u=>((bool)u.Usename.ToLower().Contains(key)
                                       || (bool)u.LastName.ToLower().Contains(key)
                                       || (bool)u.FirstMidName.ToLower().Contains(key)
-
-             ).ToList();
+))
+             .GetPaged(page, pageSize).Results.ToList(); 
         }
 
         public List<User> GetAllUsers()
         {
             return db.Users.ToList();
         }
-        
+
+        public List<User> GetAllUsers(int page, int pageSize)
+        {
+            return db.Users.OrderBy(u=>u.ID).GetPaged(page, pageSize).Results.ToList();
+        }
     }
 }

@@ -21,9 +21,9 @@ namespace SDK.IServices
         [OperationContract]
         User FindUser(int ID);
         [OperationContract]
-        List<User> FindUsers(String key);
+        List<User> FindUsers(String key, int page, int pageSize);
         [OperationContract]
-        List<User> GetAllUsers();
+        List<User> GetAllUsers(int page, int pageSize);
         
     }
 }

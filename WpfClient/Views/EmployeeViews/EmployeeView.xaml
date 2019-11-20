@@ -15,6 +15,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"
@@ -76,43 +77,38 @@
                     Command="{Binding RemoveCommand}" />
 
         </StackPanel>
-
-        <DataGrid Grid.Row="3"
-                  SelectedValue="{Binding EmployeeSelect}"
-                  Style="{StaticResource Table_pr}"
-                  ItemsSource="{Binding Employees}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding FirstMidName}"
-                                    Header="FirstMidName"
-                                    Width="*"
-                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
-                <DataGridTextColumn Binding="{Binding LastName}"
-                                    Header="LastName"
-                                    Width="*"
-                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
-                <DataGridTextColumn Binding="{Binding BirthDayDate}"
-                                    Header="BirthDayDate"
-                                    Width="*"
-                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
-                <DataGridTextColumn Binding="{Binding job}"
-                                    Header="job"
-                                    Width="*"
-                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
-                <DataGridTextColumn Binding="{Binding Pay}"
-                                    Header="Pay"
-                                    Width="*"
-                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
-             
-                <DataGridTextColumn Binding="{Binding Date_At}"
-                                    Header="Date_At"
-                                    Width="*"
-                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
-                <DataGridTextColumn Binding="{Binding Date_Up}"
-                                    Header="Date_Up"
-                                    Width="*"
-                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
-            </DataGrid.Columns>
-        </DataGrid>
-
+        <Grid Grid.Row="3" Margin="5">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel Margin="3 " Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" Text=" Number of rows: "/>
+                <TextBox Text="{Binding NumOfRow}" Width="30"/>
+            </StackPanel>
+            <StackPanel Margin="3 " Orientation="Horizontal">
+                    <TextBlock FontWeight="Bold" Text=" Page Number : "/>
+                <TextBox Text="{Binding PageNum}" Width="30"/>
+            </StackPanel>
+            
+    <StackPanel Orientation="Horizontal">
+                    <Button Margin="2"
+                        Width="30" Command="{Binding PreviousCommand}" Tag="AngleDoubleLeft" Style="{StaticResource btn_paginaation}">
+                        
+                    </Button>
+                    <Button Margin="2"
+                        Command="{Binding NextCommand}" Tag="AngleDoubleRight" Width="30" Style="{StaticResource btn_paginaation}">
+                  
+                    </Button>
+                    <Button Margin="2"
+                        Command="{Binding TableCommand}"  Tag="Table" Style="{StaticResource btn_view}">
+                      
+                    </Button>
+                    <Button Margin="2"
+                        Command="{Binding CardCommand}" Tag="IdCardOutline"  Style="{StaticResource btn_view}">
+                       
+                    </Button>
+                </StackPanel>
+        </StackPanel>
+        </Grid>
+        <ContentControl Grid.Row="4"  Content="{Binding ViewData}"/>
+       
     </Grid>
 </UserControl>

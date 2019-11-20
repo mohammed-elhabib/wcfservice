@@ -13,11 +13,17 @@ namespace ConsoleClient
     {
         static void Main(string[] args)
         {
-            /* Console.ReadKey();
-               var channelFactory = new ChannelFactory<IUserService>(new BasicHttpBinding(), "http://localhost:8733/User");
+            Console.ReadKey();
+               var channelFactory = new ChannelFactory<IEmployeeService>(new BasicHttpBinding(), "http://localhost:8733/Employee");
                var channel = channelFactory.CreateChannel();
 
-               for(int i =0;i<12;i++){
+            var es = channel.GetAllEmployees(1, 30);
+            foreach (var e in es) {
+
+                Console.WriteLine(e.ID);
+            }
+
+            /*   for(int i =0;i<12;i++){
               channel.AddUser(new SDK.Model.User()
               {
                   BirthDayDate = DateTime.Now,
@@ -38,10 +44,10 @@ namespace ConsoleClient
 
                });
 
+            */
+            Console.ReadKey();
 
-               Console.ReadKey();
-
-       */
+       
         }
     }
 }

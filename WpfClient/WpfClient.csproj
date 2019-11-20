@@ -86,10 +86,13 @@
     <Compile Include="Lib\Dailog\IDialogWindow.cs" />
     <Compile Include="Lib\Extenion\InportManger.cs" />
     <Compile Include="Lib\Helpers\ButtonsHelper.cs" />
+    <Compile Include="Lib\IViewType.cs" />
     <Compile Include="Lib\StringRGBToBrushConverter.cs" />
     <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="ViewModels\DailogViewModel\DialogViewModelBase.cs" />
     <Compile Include="ViewModels\DailogViewModel\SuccessfullViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModels\ViewType\CardViewModel .cs" />
+    <Compile Include="ViewModels\EmployeeViewModels\ViewType\TableViewModel.cs" />
     <Compile Include="ViewModels\ExtenionViewModels\ExtentionViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ContentViewModel.cs" />
@@ -97,6 +100,8 @@
     <Compile Include="ViewModels\EmployeeViewModels\EditEmployeeViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModels\ViewEmployeeViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModels\ViewType\CardViewModel .cs" />
+    <Compile Include="ViewModels\UserViewModels\ViewType\TableViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\ViewUserViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\EditUserViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\CreateUserViewModel.cs" />
@@ -110,6 +115,12 @@
     </Compile>
     <Compile Include="Views\DailogView\SuccessfullView.xaml.cs">
       <DependentUpon>SuccessfullView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeViews\ViewTypes\CradView.xaml.cs">
+      <DependentUpon>CradView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeViews\ViewTypes\TableView.xaml.cs">
+      <DependentUpon>TableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ExtenionView\ItemExtention.xaml.cs">
       <DependentUpon>ItemExtention.xaml</DependentUpon>
@@ -131,6 +142,12 @@
     </Compile>
     <Compile Include="Views\EmployeeViews\ViewEmployeeView.xaml.cs">
       <DependentUpon>ViewEmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserViews\ViewTypes\CradView.xaml.cs">
+      <DependentUpon>CradView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserViews\ViewTypes\TableView.xaml.cs">
+      <DependentUpon>TableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserViews\ViewUserView.xaml.cs">
       <DependentUpon>ViewUserView.xaml</DependentUpon>
@@ -180,6 +197,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\EmployeeViews\ViewTypes\CradView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeeViews\ViewTypes\TableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ExtenionView\ItemExtention.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -205,6 +230,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\EmployeeViews\ViewEmployeeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserViews\ViewTypes\CradView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserViews\ViewTypes\TableView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

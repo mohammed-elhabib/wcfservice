@@ -42,7 +42,7 @@ namespace WpfClient.ViewModels.EmployeeViewModels
         {
 
             _employee.job = Job;
-                _employee.Pay = int.Parse(Pay);
+             _employee.Pay = decimal.Parse(Pay);
             _employee.BirthDayDate = this.BirthDayDate;
             _employee.LastName = this.LastName;
             _employee.FirstMidName = this.FirstName;

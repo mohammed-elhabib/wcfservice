@@ -19,10 +19,10 @@ namespace SDK.IServices
         [OperationContract]
         bool DeleteEmployee(Employee employee);
         [OperationContract]
-        List<Employee> GetAllEmployees();
+        List<Employee> GetAllEmployees(int page, int pageSize);
         Employee FindEmployee(int ID);
         [OperationContract]
-        List<Employee> FindEmployees(String key);
+        List<Employee> FindEmployees(String key, int page, int pageSize);
       
     }
 }

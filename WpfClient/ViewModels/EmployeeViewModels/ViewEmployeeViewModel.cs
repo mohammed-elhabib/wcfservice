@@ -39,7 +39,7 @@ namespace WpfClient.ViewModels.EmployeeViewModels
             this.LastName = Employee.LastName;
             this.FirstName = Employee.FirstMidName;
             this.BirthDayDate = Employee.BirthDayDate;
-            var im = new InportManger();
+          ///  var im = new InportManger();
           //  EmployeeExtenions = im.ExtenionList.ToList().Select((e) => new ExtentionViewModel(Employee,e));
             
         }
