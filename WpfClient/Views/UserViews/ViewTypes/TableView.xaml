@@ -8,6 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <DataGrid Grid.Row="3"
+                  
                   SelectedValue="{Binding UserSelect}"
                   Style="{StaticResource Table_pr}"
                   ItemsSource="{Binding Users}">

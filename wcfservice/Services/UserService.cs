@@ -118,5 +118,10 @@ namespace wcfservice.Services
         {
             return db.Users.OrderBy(u=>u.ID).GetPaged(page, pageSize).Results.ToList();
         }
+
+        public bool LoginUser(string username, string password)
+        {
+           return( db.Users.ToList().Where(u=>u.Usename.Equals(username)&&u.Password.Equals(password)).ToList().Count>0);
+        }
     }
 }

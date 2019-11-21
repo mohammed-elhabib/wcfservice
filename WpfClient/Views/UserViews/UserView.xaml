@@ -63,14 +63,17 @@
                     Command="{Binding CreateCommand}"
                     Style="{StaticResource Btn_Crud}" />
             <Button Content="VIEW"
+                    Visibility="{Binding ButtonVisibility}"
                     Style="{StaticResource Btn_Crud}"
                     Command="{Binding ViewCommand}"
                     Foreground="#558b2f" />
             <Button Content="EDIT"
+                    Visibility="{Binding ButtonVisibility}"
                     Style="{StaticResource Btn_Crud}"
                     Command="{Binding EditCommand}"
                     Foreground="#558b2f" />
             <Button Content="REMOVE"
+                    Visibility="{Binding ButtonVisibility}"
                     pro:HoverProperty.Value="False"
                     Style="{StaticResource Btn_Crud}"
                     Foreground="#d50000"

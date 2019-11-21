@@ -39,7 +39,11 @@ namespace WpfClient.Views.EmployeeViews.ViewTypes
             return viewmodel.SelectItem();
         }
 
-        
+        public void SetButtonVisibility(Action<bool> ButtonVisibility)
+        {
+            viewmodel.SetButtonVisibility(ButtonVisibility);
+                }
+
         public void UpdateView(ObservableCollection<Employee> t)
         {
             viewmodel.UpdateView(t);

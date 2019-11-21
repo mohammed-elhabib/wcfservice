@@ -45,7 +45,7 @@
 
 
             <Border Grid.Column="0"
-                    Style="{StaticResource Lfet_Menu}"
+                    Style="{StaticResource Left_Menu}"
                     Grid.ColumnSpan="2">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -79,6 +79,7 @@
                     <StackPanel Grid.Row="1">
                         <Button   Content="User Contol"
                                   Tag="Users"
+                                
                                   Command="{Binding UserCommand}"
                                   Style="{StaticResource Btn_Left_Menu}" />
                         <Button  Content="Employee Contol"

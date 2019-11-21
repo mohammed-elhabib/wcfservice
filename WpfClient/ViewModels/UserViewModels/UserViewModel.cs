@@ -21,6 +21,8 @@ namespace WpfClient.ViewModels.UserViewModels
 {
     public class UserViewModel : ViewModelBase
     {
+        public Visibility ButtonVisibility { get; set; } = Visibility.Hidden;
+
         private ContentControl _viewData { get; set; }
         private string _pageNum { get; set; } = "1";
         private string _numOfRow { get; set; } = "15";
@@ -64,6 +66,7 @@ namespace WpfClient.ViewModels.UserViewModels
             get { return _viewData; }
             set
             {
+
                 _viewData = value;
             }
 
@@ -82,7 +85,7 @@ namespace WpfClient.ViewModels.UserViewModels
         public UserViewModel()
         {
             _viewData = new CradView();
-
+            (_viewData as IViewType<User>).SetButtonVisibility(setButtonVisibility);
             this.UpdateUsers(int.Parse(_pageNum), int.Parse(_numOfRow));
             CardCommand = new Command(CardAction);
             TableCommand = new Command(TableAction);
@@ -102,15 +105,27 @@ namespace WpfClient.ViewModels.UserViewModels
             {
                 _viewData = new CradView();
                 this.UpdateUsers(int.Parse(_pageNum), int.Parse(_numOfRow));
+                (_viewData as IViewType<User>).SetButtonVisibility(setButtonVisibility);
+
             }
         }
+        public void setButtonVisibility(bool visibility)
+        {
+            if (visibility)
+                ButtonVisibility = Visibility.Visible;
+            else 
+                ButtonVisibility = Visibility.Hidden;
 
+
+        }
         private void TableAction()
         {
             if (!(_viewData is TableView))
             {
                 _viewData = new TableView();
                 this.UpdateUsers(int.Parse(_pageNum), int.Parse(_numOfRow));
+                (_viewData as IViewType<User>).SetButtonVisibility(setButtonVisibility);
+
             }
         }
 

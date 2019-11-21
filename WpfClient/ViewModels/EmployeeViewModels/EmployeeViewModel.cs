@@ -21,6 +21,7 @@ namespace WpfClient.ViewModels.EmployeeViewModels
 {
     public class EmployeeViewModel : ViewModelBase
     {
+        public Visibility ButtonVisibility { get; set; } = Visibility.Hidden;
         private ContentControl _viewData { get; set; }
         private string _pageNum { get; set; } = "1";
         private string _numOfRow { get; set; } = "15";
@@ -102,6 +103,7 @@ namespace WpfClient.ViewModels.EmployeeViewModels
             _viewData = new CradView();
 
             this.UpdateEmployees(int.Parse(_pageNum), int.Parse(_numOfRow));
+            (_viewData as IViewType<Employee>).SetButtonVisibility(setButtonVisibility);
             CardCommand = new Command(CardAction);
             TableCommand = new Command(TableAction);
             NextCommand = new Command(NextAction);
@@ -111,15 +113,26 @@ namespace WpfClient.ViewModels.EmployeeViewModels
             EditCommand = new Command(EditEmployee);
             ViewCommand = new Command(ViewEmployee);
             SearchCommand = new CommandByPar(SearchEmployee);
-        
-        }
 
-        private void CardAction()
+        
+    }
+    public void setButtonVisibility(bool visibility)
+    {
+        if (visibility)
+            ButtonVisibility = Visibility.Visible;
+        else
+            ButtonVisibility = Visibility.Hidden;
+
+
+    }
+
+    private void CardAction()
         {
             if (!(_viewData is CradView))
             {
                 _viewData = new CradView();
                 this.UpdateEmployees(int.Parse(_pageNum), int.Parse(_numOfRow));
+                (_viewData as IViewType<Employee>).SetButtonVisibility(setButtonVisibility);
             }
         }
 
@@ -129,6 +142,7 @@ namespace WpfClient.ViewModels.EmployeeViewModels
             {
                 _viewData = new TableView();
                 this.UpdateEmployees(int.Parse(_pageNum), int.Parse(_numOfRow));
+                (_viewData as IViewType<Employee>).SetButtonVisibility(setButtonVisibility);
             }
         }
 

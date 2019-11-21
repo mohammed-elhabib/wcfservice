@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WpfClient.Lib;
 
 namespace WpfClient.ViewModels.UserViewModels.ViewType
@@ -15,6 +16,7 @@ namespace WpfClient.ViewModels.UserViewModels.ViewType
 
         private ObservableCollection<User> _Users;
         private User _UserSelect;
+       
         public ObservableCollection<User> Users
         {
             get { return _Users; }
@@ -30,11 +32,16 @@ namespace WpfClient.ViewModels.UserViewModels.ViewType
             get { return _UserSelect; }
             set
             {
+                MessageBox.Show(value + "///////");
+                 ButtonVisibility((value != null));
                 _UserSelect = value;
             }
 
         }
-    public TableViewModel()
+
+        public Action<bool> ButtonVisibility { get ; set ; }
+
+        public TableViewModel()
         {
         }
 
@@ -46,6 +53,11 @@ namespace WpfClient.ViewModels.UserViewModels.ViewType
         public User SelectItem()
         {
             return _UserSelect;
+        }
+
+        public void SetButtonVisibility(Action<bool> ButtonVisibility)
+        {
+            this.ButtonVisibility = ButtonVisibility;
         }
     }
 }

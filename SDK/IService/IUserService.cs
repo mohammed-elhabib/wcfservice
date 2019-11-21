@@ -24,6 +24,7 @@ namespace SDK.IServices
         List<User> FindUsers(String key, int page, int pageSize);
         [OperationContract]
         List<User> GetAllUsers(int page, int pageSize);
-        
+        [OperationContract]
+        bool LoginUser(string username ,string password);
     }
 }

@@ -30,7 +30,7 @@ namespace WpfClient.ViewModels.EmployeeViewModels
         {
             this._employee = employee;
             this.Pay = employee.Pay.ToString();
-            this.Job = employee.job;
+            this.Job = employee.Job;
             this.BirthDayDate = employee.BirthDayDate;
             this.LastName = employee.LastName;
             this.FirstName = employee.FirstMidName;
@@ -41,13 +41,13 @@ namespace WpfClient.ViewModels.EmployeeViewModels
         public void Createemployee()
         {
 
-            _employee.job = Job;
+            _employee.Job = Job;
              _employee.Pay = decimal.Parse(Pay);
             _employee.BirthDayDate = this.BirthDayDate;
             _employee.LastName = this.LastName;
             _employee.FirstMidName = this.FirstName;
             _employee.BirthDayDate = this.BirthDayDate;
-            _employee.Date_Up = DateTime.Now;
+            _employee.DateUp = DateTime.Now;
             var channelFactory = new ChannelFactory<IEmployeeService>(new BasicHttpBinding(), "http://localhost:8733/employee");
             var channel = channelFactory.CreateChannel();
             channel.EditEmployee(_employee);

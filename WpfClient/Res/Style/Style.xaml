@@ -96,7 +96,7 @@
            TargetType="{x:Type Button}">
         <Setter Property="Foreground"
                 Value="#5E6979" />
-
+      
         <Setter Property="Height"
                 Value="40" />
         <Setter Property="Cursor"
@@ -136,6 +136,11 @@
                 <Setter Property="Foreground"
                         Value="#BCCEE4" />
             </Trigger>
+       <!--     <Trigger Property="IsPressed"
+                     Value="true">
+                <Setter Property="pro:IsSeclectProperty.Value" Value="True" />
+            
+            </Trigger>-->
         </Style.Triggers>
 
     </Style>
@@ -188,7 +193,7 @@
         </Setter> 
     </Style>
 
-    <Style x:Key="Lfet_Menu"
+    <Style x:Key="Left_Menu"
            TargetType="{x:Type Border}">
         <Setter Property="Background"
                 Value="#313A46" />

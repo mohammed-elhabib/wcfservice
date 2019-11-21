@@ -10,7 +10,8 @@ namespace WpfClient.Lib
  public  interface IViewType<T>
     {
         void UpdateView(ObservableCollection<T> t); 
-        T SelectItem(); 
-
+        T SelectItem();
+      
+        void SetButtonVisibility(Action<bool> ButtonVisibility);
     }
 }

@@ -34,13 +34,13 @@ namespace WpfClient.ViewModels.EmployeeViewModels
             
             var newEmployee = new Employee()
             {
-                job=Job,
+                Job=Job,
                 Pay= int.Parse(Pay),
                 BirthDayDate = BirthDayDate,
                 FirstMidName = FirstName,
                 LastName = LastName,
-                Date_At = DateTime.Now,
-                Date_Up = DateTime.Now
+                DateAt = DateTime.Now,
+                DateUp = DateTime.Now
             };
             var channelFactory = new ChannelFactory<IEmployeeService>(new BasicHttpBinding(), "http://localhost:8733/Employee");
             var channel = channelFactory.CreateChannel();

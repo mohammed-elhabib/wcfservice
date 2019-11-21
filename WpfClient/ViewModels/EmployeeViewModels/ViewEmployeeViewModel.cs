@@ -33,7 +33,7 @@ namespace WpfClient.ViewModels.EmployeeViewModels
         public ViewEmployeeViewModel(Employee Employee,string title, ContentControl dailogcontent) : base(title, dailogcontent)
         {
             this._Employee = Employee;
-             this.Job= Employee.job;
+             this.Job= Employee.Job;
              this.Pay= Employee.Pay.ToString();
             this.BirthDayDate = Employee.BirthDayDate;
             this.LastName = Employee.LastName;

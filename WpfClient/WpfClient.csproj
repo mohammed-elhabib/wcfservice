@@ -79,6 +79,7 @@
     <Compile Include="Ico.cs" />
     <Compile Include="Lib\AttachedProperties\BaseAttachedProperty.cs" />
     <Compile Include="Lib\AttachedProperties\HoverProperty.cs" />
+    <Compile Include="Lib\AttachedProperties\IsSeclectProperty.cs" />
     <Compile Include="Lib\AttachedProperties\MouseBehaviour.cs" />
     <Compile Include="Lib\CommandByPar.cs" />
     <Compile Include="Lib\Command.cs" />
@@ -112,6 +113,9 @@
     </Compile>
     <Compile Include="Views\DailogView\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DailogView\LoginErorrView .xaml.cs">
+      <DependentUpon>LoginErorrView .xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DailogView\SuccessfullView.xaml.cs">
       <DependentUpon>SuccessfullView.xaml</DependentUpon>
@@ -192,6 +196,10 @@
     <Page Include="Views\DailogView\DialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DailogView\LoginErorrView .xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DailogView\SuccessfullView.xaml">
       <SubType>Designer</SubType>
@@ -288,9 +296,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Res\Img\user.png" />
   </ItemGroup>

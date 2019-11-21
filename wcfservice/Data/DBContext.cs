@@ -20,10 +20,10 @@ namespace Date.Model
                 context.Employees.Add(new Employee
                 {
                     BirthDayDate = DateTime.Today.AddDays(-1 * i),
-                    Date_At = DateTime.Now,
-                    Date_Up = DateTime.Now,
+                    DateAt = DateTime.Now,
+                    DateUp = DateTime.Now,
                     FirstMidName = $"First name {i}",
-                    job = $"Job {i}",
+                    Job = $"Job {i}",
                     LastName = $"Last name {i}",
                     Pay = 233m * i,
                 });

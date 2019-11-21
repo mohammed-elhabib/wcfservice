@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WpfClient.Lib;
 
 namespace WpfClient.ViewModels.EmployeeViewModels.ViewType
@@ -30,11 +31,14 @@ namespace WpfClient.ViewModels.EmployeeViewModels.ViewType
             get { return _EmployeeSelect; }
             set
             {
+                MessageBox.Show(value + "///////");
+                ButtonVisibility((value != null));
                 _EmployeeSelect = value;
             }
 
         }
-    public TableViewModel()
+        public Action<bool> ButtonVisibility { get; set; }
+        public TableViewModel()
         {
         }
 
@@ -46,6 +50,11 @@ namespace WpfClient.ViewModels.EmployeeViewModels.ViewType
         public Employee SelectItem()
         {
             return _EmployeeSelect;
+        }
+
+        public void SetButtonVisibility(Action<bool> ButtonVisibility)
+        {
+            this.ButtonVisibility = ButtonVisibility;
         }
     }
 }

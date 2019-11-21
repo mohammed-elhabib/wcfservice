@@ -12,21 +12,22 @@ using wcfservice.Pagination;
 namespace wcfservice.Services
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "User" in both code and config file together.
-    public class EmployeeService : IEmployeeService
+    public class EmployeeService : IEmployeeService 
     {
-        DBContext db;
 
         public EmployeeService()
         {
-            db = new DBContext();
         }
         public bool AddEmployee(Employee employee)
         {
             try
             {
-                db.Employees.Add(employee);
-                db.SaveChanges();
-                return true;
+                using (var db = new DBContext())
+                {
+                    db.Employees.Add(employee);
+                    db.SaveChanges();
+                    return true;
+                }
             }
             catch (Exception)
             {
@@ -40,9 +41,12 @@ namespace wcfservice.Services
         {
             try
             {
-                db.Employees.Remove(db.Employees.Find(employee.ID));
-                db.SaveChanges();
-                return true;
+                using (var db = new DBContext())
+                {
+                    db.Employees.Remove(db.Employees.Find(employee.ID));
+                    db.SaveChanges();
+                    return true;
+                }
             }
             catch (Exception)
             {
@@ -52,18 +56,23 @@ namespace wcfservice.Services
             }
         }
 
+
+
         public bool EditEmployee(Employee employee)
         {
 
             try
             {
-                var us = db.Employees.Find(employee.ID);
-                us.LastName = employee.LastName;
-                us.FirstMidName = employee.FirstMidName;
-                us.BirthDayDate = employee.BirthDayDate;
-                us.Date_Up = DateTime.Now;
-                db.SaveChanges();
-                return true;
+                using (var db = new DBContext())
+                {
+                    var us = db.Employees.Find(employee.ID);
+                    us.LastName = employee.LastName;
+                    us.FirstMidName = employee.FirstMidName;
+                    us.BirthDayDate = employee.BirthDayDate;
+                    us.UpdateAt = DateTime.Now;
+                    db.SaveChanges();
+                    return true;
+                }
             }
             catch (Exception)
             {
@@ -77,39 +86,33 @@ namespace wcfservice.Services
 
         public Employee FindEmployee(int ID)
         {
-            return db.Employees.Find(ID);
+            using (var db = new DBContext())
+            {
+                return db.Employees.Find(ID);
+            }
         }
 
-        
+
         public List<Employee> FindEmployees(string key, int page, int pageSize)
         {
             key = key?.ToLower();
-            return db.Employees.OrderBy(e => e.ID).Where(e => (bool)e.job.ToLower().Contains(key)
+            using (var db = new DBContext())
+            {
+                return db.Employees.OrderBy(e => e.ID).Where(e => (bool)e.Job.ToLower().Contains(key)
                                       || (bool)e.LastName.ToLower().Contains(key)
                                       || (bool)e.FirstMidName.ToLower().Contains(key)
 
              ).GetPaged(page, pageSize).Results.ToList();
+            }
 
         }
 
         public List<Employee> GetAllEmployees(int page, int pageSize)
         {
-            return db.Employees.OrderBy(e=>e.ID).GetPaged(page, pageSize).Results.ToList();
-        }
-
-        
-        /*    public List<Employee> FindEmployee(string key)
-   {
-       return db.Employees.ToList().Where(u =>
-                                   u.LastName.Equals(key)
-                                 || u.FirstMidName.Equals(key)
-
-        ).ToList();
-   }
-   */
-        /*  public List<Employee> GetAllEmployees()
-          {
-              return db.Employees.ToList();
-          }*/
+            using (var db = new DBContext())
+            {
+                return db.Employees.OrderBy(e => e.ID).GetPaged(page, pageSize).Results.ToList();
+            }
+        } 
     }
 }

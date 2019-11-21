@@ -13,10 +13,10 @@ using WpfClient.Views.UserViews;
 
 namespace WpfClient.ViewModels
 {
-  public  class AppViewModel:ViewModelBase
+    public class AppViewModel : ViewModelBase
     {
 
-        private ContentControl _content= new UserView();
+        private ContentControl _content = new UserView();
         public ContentControl Content
         {
             get
@@ -29,12 +29,13 @@ namespace WpfClient.ViewModels
             }
         }
         public ICommand MinCommand { get; set; }
-       public ICommand PowerCommand { get; set; }
+        public ICommand PowerCommand { get; set; }
         public ICommand ResizeCommand { get; set; }
         public ICommand UserCommand { get; set; }
         public ICommand EmployeeCommand { get; set; }
         public ICommand LogoutCommand { get; set; }
-        public AppViewModel() {
+        public AppViewModel()
+        {
             this.PowerCommand = new Command(PowerAction);
             this.ResizeCommand = new Command(ResizeAction);
             this.MinCommand = new Command(MinAction);
